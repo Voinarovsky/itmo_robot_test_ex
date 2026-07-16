@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="aubo_robot">
+
+  <xacro:arg name="aubo_type" default="aubo_i5"/>
+  <xacro:arg name="transmission_hw_interface" default=""/>
+  <xacro:property name="aubo_type" value="$(arg aubo_type)"/>
+
+  <xacro:include filename="$(find aubo_description)/urdf/xacro/inc/aubo_ros2_macro.xacro"/>
+  <xacro:aubo_robot
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+    aubo_type="${aubo_type}"/>
+
+  <ros2_control name="auboGazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name="shoulder_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="upperArm_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="foreArm_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist1_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist2_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="wrist3_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"><param name="initial_value">0.0</param></state_interface>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find aubo_gazebo)/config/aubo_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+</robot>
