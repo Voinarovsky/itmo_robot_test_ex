@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="aubo_robot">
 
-  <xacro:arg name="aubo_type" default="aubo_i5"/>
+  <xacro:arg name="aubo_type" default="aubo_i7"/>
   <xacro:arg name="transmission_hw_interface" default=""/>
   <xacro:property name="aubo_type" value="$(arg aubo_type)"/>
 

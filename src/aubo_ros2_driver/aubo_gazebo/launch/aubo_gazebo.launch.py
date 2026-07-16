@@ -118,7 +118,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "robot_type",
             description="Type/series of used aubo robot.",
-            choices=["aubo_i5", "aubo_C3"],
+            choices=["aubo_i5", "aubo_C3", "aubo_i7", "aubo_iS7"],
             default_value="aubo_i5",
         )
     )
