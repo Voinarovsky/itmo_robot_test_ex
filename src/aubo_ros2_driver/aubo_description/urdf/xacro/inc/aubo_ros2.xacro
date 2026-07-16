@@ -13,6 +13,7 @@
     aubo_type="${aubo_type}"/>
   <!-- ros2_control -->
   <xacro:include filename="$(find aubo_description)/urdf/xacro/inc/aubo.ros2_control.xacro" />
+  <xacro:include filename="$(find aubo_description)/urdf/scene.xacro"/>
   <xacro:aubo_ros2_control
     name="auboHardwareInterface"
     prefix=""

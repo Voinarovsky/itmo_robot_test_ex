@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Стол -->
+  <link name="table">
+    <visual>
+      <origin xyz="0.6 0.0 -0.05"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.6 0.0 -0.05"/>
+      <geometry>
+        <box size="1.0 1.0 0.1"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="50"/>
+      <origin xyz="0 0 0"/>
+      <inertia
+          ixx="1"
+          ixy="0"
+          ixz="0"
+          iyy="1"
+          iyz="0"
+          izz="1"/>
+    </inertial>
+  </link>
+
+  <joint name="table_joint" type="fixed">
+      <parent link="world"/>
+      <child link="table"/>
+      <origin xyz="0 0 0"/>
+  </joint>
+
+</robot>
