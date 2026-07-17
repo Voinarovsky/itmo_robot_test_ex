@@ -9,6 +9,8 @@
   <xacro:aubo_robot
     transmission_hw_interface="$(arg transmission_hw_interface)"
     aubo_type="${aubo_type}"/>
+    <!-- Подключаем сцену (стол) -->
+  <xacro:include filename="$(find aubo_description)/urdf/scene.xacro"/>
 
   <ros2_control name="auboGazeboSystem" type="system">
     <hardware>
