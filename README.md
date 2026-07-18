@@ -9,7 +9,6 @@
 
 ## 1. Запуск
 
-Нужен только Docker (и `docker compose`). Ничего ставить в систему не надо.
 
 ```bash
 git clone https://github.com/Voinarovsky/itmo_robot_test_ex.git
@@ -17,8 +16,6 @@ cd itmo_robot_test_ex
 docker build -t aubo_ros2_test:latest .
 docker compose up
 ```
-
-Сборка образа занимает ~15–25 минут (тянется `ros-humble-moveit` и Gazebo).
 Стек стартует headless и по шагам выводит прогресс:
 
 ```
@@ -28,14 +25,14 @@ docker compose up
 [demo] 4/4 Демо-движение через MoveIt...
 ```
 
-### С RViz (нужен X11 на хосте, Linux)
+### С RViz 
 
 ```bash
 xhost +local:docker
 USE_RVIZ=true docker compose up
 ```
 
-### Ручной режим (интерактивно, по терминалам)
+### Ручной режим 
 
 ```bash
 docker run --rm -it --network host --name aubo aubo_ros2_test:latest bash
@@ -64,8 +61,6 @@ python3 /ros2_ws/scripts/move_to_home.py
 
 ```
 ┌───────────────────────────────────────────────────┐
-│ FlexBE                                НЕ РЕАЛИЗОВАНО│
-├───────────────────────────────────────────────────┤
 │ MoveIt 2 / move_group                             │
 │   OMPL-планировщик, IK (KDL), проверка коллизий   │
 │         ↓ action FollowJointTrajectory            │
