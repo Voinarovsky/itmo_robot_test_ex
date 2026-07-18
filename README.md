@@ -98,7 +98,3 @@ patches/                доработки поверх апстримного a
   aubo_moveit_config/launch/aubo_moveit_sim.launch.py  launch MoveIt
 scripts/move_to_home.py демо-движение в конфигурационном пространстве
 ```
-
-Апстримный репозиторий робота (https://github.com/AuboRobot/aubo_ros2_driver)
-клонируется на этапе сборки образа и **не** вендорится в этот репозиторий —
-поэтому в `patches/` видно ровно то, что было написано мной.
