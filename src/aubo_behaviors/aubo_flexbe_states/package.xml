@@ -9,13 +9,15 @@
      aubo_flexbe_states provides a collection of custom states.
      Feel free to add new states.
   </description>
-  <author email="todo@todo.com">TODO</author>
-  <maintainer email="todo@todo.com">TODO</maintainer>
+  <author email="kakotito@gmail.com">Kirill Voinarovsky</author>
+  <maintainer email="kakotito@gmail.com">Kirill Voinarovsky</maintainer>
   <license>BSD</license>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>flexbe_core</exec_depend>
-
+  <exec_depend>moveit_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
