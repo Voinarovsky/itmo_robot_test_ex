@@ -1,7 +1,8 @@
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import OpaqueFunction
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+from launch.actions import OpaqueFunction, DeclareLaunchArgument
+from launch.conditions import IfCondition
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 import os
@@ -19,7 +20,9 @@ def load_yaml(package_name, file_path):
 
 
 def launch_setup(context, *args, **kwargs):
-  
+
+    use_rviz = LaunchConfiguration("use_rviz")
+
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
@@ -117,6 +120,7 @@ def launch_setup(context, *args, **kwargs):
         name="rviz2",
         output="log",
         arguments=["-d", rviz_config],
+        condition=IfCondition(use_rviz),
         parameters=[
             robot_description,
             robot_description_semantic,
@@ -128,4 +132,13 @@ def launch_setup(context, *args, **kwargs):
 
 
 def generate_launch_description():
-    return LaunchDescription([OpaqueFunction(function=launch_setup)])
+    declared_arguments = [
+        DeclareLaunchArgument(
+            "use_rviz",
+            default_value="false",
+            description="Запускать ли RViz (в Docker без X11 держать false)",
+        ),
+    ]
+    return LaunchDescription(
+        declared_arguments + [OpaqueFunction(function=launch_setup)]
+    )

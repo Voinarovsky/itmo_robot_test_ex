@@ -4,3 +4,12 @@ log/
 __pycache__/
 *.pyc
 *.bak
+=======
+
+frames_*.gv
+frames_*.pdf
+__pycache__/
+*.pyc
+src/flexbe_behavior_engine/
+src/flexbe_moveit2/
+src/flexbe_webui/

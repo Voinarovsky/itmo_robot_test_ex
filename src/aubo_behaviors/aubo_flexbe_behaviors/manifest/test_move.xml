@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<behavior name="TestMove">
+    <executable package_path="aubo_flexbe_behaviors.test_move_sm" class="TestMoveSM" />
+    <tagstring>aubo, joint, motion</tagstring>
+    <author>kir</author>
+    <date>Fri Jul 18 2026</date>
+    <description>
+        Autonomous joint-space motion sequence for aubo_i7:
+        home to pose1 to pose2 and back to home.
+    </description>
+    <params>
+        <param type="text" name="plan_action" default="move_action" label="plan_action" hint="MoveGroup plan action" />
+        <param type="text" name="execute_action" default="execute_trajectory" label="execute_action" hint="Execute trajectory action" />
+        <param type="numeric" name="planning_time" default="5.0" label="planning_time" hint="Planning time in seconds">
+            <min value="0" />
+            <max value="1000" />
+        </param>
+    </params>
+</behavior>
