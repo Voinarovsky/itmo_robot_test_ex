@@ -106,6 +106,6 @@ aubo_behaviors/
 scripts/move_to_home.py     движение в конфигурационном пространстве
 scripts/move_cartesian.py   движение по прямой
 ```
-- Сборка без `--symlink-install`: в апстриме битые симлинки мешей i10.
+---
 - `joint_trajectory_controller` не поднимается launch-файлом, активируется
   отдельно.
